@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package shop;
+
+
+message Shop {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+
+}
+
+message GetShopRequest {
+  string Shop_id = 1;
+}
+
+message GetShopResponse {
+  Shop shop = 1;
+}
+
+message SearchShopsRequest {
+  string query = 1;
+}
+
+message SearchShopsResponse {
+  repeated Shop shops = 1;
+}
+
+service ShopService {
+  rpc GetShop(GetShopRequest) returns (GetShopResponse);
+  rpc SearchShops(SearchShopsRequest) returns (SearchShopsResponse);
+
+}
